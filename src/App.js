@@ -1,24 +1,52 @@
-import logo from './logo.svg';
+import React from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Header from './components/Header';
+import About from './components/About';
+import Gallery from './components/Gallery';
+import Contact from './components/Contact';
+import BackgroundCanvas from './components/BackgroundCanvas';
 import './App.css';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#f5f5f5',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+    background: {
+      default: '#000000',
+      paper: '#111111',
+    },
+  },
+  typography: {
+    fontFamily: '"Montserrat", "Roboto", "Helvetica", "Arial", sans-serif',
+    h1: {
+      fontWeight: 700,
+    },
+    h2: {
+      fontWeight: 600,
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <div className="app-container">
+        <BackgroundCanvas />
+        <div className="content">
+          <Header />
+          <About />
+          <Gallery />
+          <Contact />
+        </div>
+      </div>
+    </ThemeProvider>
   );
 }
 
