@@ -33,7 +33,8 @@ const About = () => {
             <Grid item xs={12} md={6}>
               <Box
                 component="img"
-                src="/artist-portrait.jpg"
+                // Using a placeholder image instead of a local file that might not exist
+                src="https://via.placeholder.com/500x600/333/fff?text=Artist+Portrait"
                 alt="Artist Portrait"
                 sx={{
                   width: '100%',

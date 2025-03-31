@@ -75,3 +75,14 @@ section {
   height: 4px;
   background-color: #f50057;
 }
+
+/* Add some spacing between sections */
+#about, #gallery, #contact {
+  padding-top: 100px; /* Add extra padding at the top to account for the fixed header */
+  margin-bottom: 50px;
+}
+
+/* Make sure the header doesn't overlap content */
+header {
+  z-index: 100;
+}
