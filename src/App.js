@@ -8,18 +8,22 @@ import Contact from './components/Contact';
 import BackgroundCanvas from './components/BackgroundCanvas';
 import './App.css';
 
-const darkTheme = createTheme({
+const greyTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#f5f5f5',
+      main: '#e0e0e0',
     },
     secondary: {
-      main: '#f50057',
+      main: '#424242',
     },
     background: {
-      default: '#000000',
-      paper: '#111111',
+      default: '#616161',
+      paper: '#424242',
+    },
+    text: {
+      primary: '#f5f5f5',
+      secondary: '#e0e0e0',
     },
   },
   typography: {
@@ -29,13 +33,14 @@ const darkTheme = createTheme({
     },
     h2: {
       fontWeight: 600,
+      color: '#e0e0e0',
     },
   },
 });
 
 function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={greyTheme}>
       <CssBaseline />
       <div className="app-container">
         <BackgroundCanvas />

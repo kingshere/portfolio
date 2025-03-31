@@ -13,7 +13,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact">
+    <section id="contact" className="ink-splatter">
       <Container>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -25,31 +25,31 @@ const Contact = () => {
             Contact
           </Typography>
           
-          <Paper elevation={6} sx={{ p: 4, background: 'rgba(17, 17, 17, 0.8)', borderRadius: 2 }}>
+          <Paper elevation={6} sx={{ p: 4, background: 'rgba(66, 66, 66, 0.8)', borderRadius: 2 }}>
             <Grid container spacing={4}>
               <Grid item xs={12} md={6}>
-                <Typography variant="h5" gutterBottom>
+                <Typography variant="h5" gutterBottom sx={{ color: '#e0e0e0' }}>
                   Get in Touch
                 </Typography>
-                <Typography variant="body1" paragraph>
+                <Typography variant="body1" paragraph sx={{ color: '#bdbdbd' }}>
                   Interested in commissioning a piece or have questions about my work? Feel free to reach out through any of the channels below.
                 </Typography>
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                  <Email sx={{ mr: 2 }} />
-                  <Typography variant="body1">
+                  <Email sx={{ mr: 2, color: '#9e9e9e' }} />
+                  <Typography variant="body1" sx={{ color: '#e0e0e0' }}>
                     {contactInfo.email}
                   </Typography>
                 </Box>
                 
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
-                  <Phone sx={{ mr: 2 }} />
-                  <Typography variant="body1">
+                  <Phone sx={{ mr: 2, color: '#9e9e9e' }} />
+                  <Typography variant="body1" sx={{ color: '#e0e0e0' }}>
                     {contactInfo.phone}
                   </Typography>
                 </Box>
                 
-                <Typography variant="h6" gutterBottom>
+                <Typography variant="h6" gutterBottom sx={{ color: '#e0e0e0' }}>
                   Follow Me
                 </Typography>
                 <Box sx={{ display: 'flex', gap: 2 }}>
@@ -60,8 +60,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{ 
-                      background: 'rgba(255,255,255,0.1)',
-                      '&:hover': { background: 'rgba(255,255,255,0.2)' }
+                      background: 'rgba(189, 189, 189, 0.1)',
+                      '&:hover': { background: 'rgba(189, 189, 189, 0.2)' }
                     }}
                   >
                     <Instagram />
@@ -73,8 +73,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{ 
-                      background: 'rgba(255,255,255,0.1)',
-                      '&:hover': { background: 'rgba(255,255,255,0.2)' }
+                      background: 'rgba(189, 189, 189, 0.1)',
+                      '&:hover': { background: 'rgba(189, 189, 189, 0.2)' }
                     }}
                   >
                     <Facebook />
@@ -86,8 +86,8 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{ 
-                      background: 'rgba(255,255,255,0.1)',
-                      '&:hover': { background: 'rgba(255,255,255,0.2)' }
+                      background: 'rgba(189, 189, 189, 0.1)',
+                      '&:hover': { background: 'rgba(189, 189, 189, 0.2)' }
                     }}
                   >
                     <Twitter />
@@ -101,11 +101,11 @@ const Contact = () => {
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.15830869428!2d-74.11976397304903!3d40.69766374874431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1645189261534!5m2!1sen!2sin"
                   width="100%"
                   height="300"
-                  style={{ border: 0, borderRadius: '8px' }}
+                  style={{ border: 0, borderRadius: '8px', filter: 'grayscale(100%)' }}
                   allowFullScreen=""
                   loading="lazy"
                 />
-                <Typography variant="body2" sx={{ mt: 2, textAlign: 'center' }}>
+                <Typography variant="body2" sx={{ mt: 2, textAlign: 'center', color: '#bdbdbd' }}>
                   Studio located in the heart of New York's Art District
                 </Typography>
               </Grid>

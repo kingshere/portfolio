@@ -42,6 +42,7 @@
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  background: linear-gradient(135deg, #757575 0%, #424242 100%);
 }
 
 .content {
@@ -73,13 +74,46 @@ section {
   left: 0;
   width: 60px;
   height: 4px;
-  background-color: #f50057;
+  background-color: #212121;
 }
 
 /* Add some spacing between sections */
 #about, #gallery, #contact {
-  padding-top: 100px; /* Add extra padding at the top to account for the fixed header */
+  padding-top: 100px;
   margin-bottom: 50px;
+}
+
+/* Ink splatter effect for section backgrounds */
+.ink-splatter {
+  position: relative;
+}
+
+.ink-splatter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* Grey overlay for images */
+.grey-overlay {
+  position: relative;
+}
+
+.grey-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 66, 66, 0.3);
+  pointer-events: none;
 }
 
 /* Make sure the header doesn't overlap content */
