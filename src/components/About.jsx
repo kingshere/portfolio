@@ -17,8 +17,8 @@ const About = () => {
           </Typography>
           
           <Grid container spacing={4} alignItems="center">
-            {/* This Grid item contains the about text - now shows side by side on all screens */}
-            <Grid item xs={6} md={6}>
+            {/* Left column for the about text */}
+            <Grid item xs={12} sm={6}>
               <Paper elevation={6} sx={{ p: { xs: 2, sm: 3, md: 4 }, background: 'rgba(66, 66, 66, 0.8)', borderRadius: 2 }}>
                 <Typography variant="body1" paragraph sx={{ fontSize: { xs: '0.9rem', sm: '1rem' } }}>
                   I am a contemporary artist based in New York, specializing in abstract expressionism and mixed media art. My work explores the intersection of emotion, memory, and the subconscious mind.
@@ -32,8 +32,8 @@ const About = () => {
               </Paper>
             </Grid>
             
-            {/* This Grid item contains the artist portrait - now shows side by side on all screens */}
-            <Grid item xs={6} md={6}>
+            {/* Right column for the artist portrait */}
+            <Grid item xs={12} sm={6}>
               <Box
                 component="img"
                 src="https://via.placeholder.com/500x600/424242/e0e0e0?text=Artist+Portrait"
