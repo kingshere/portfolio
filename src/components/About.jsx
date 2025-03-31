@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Box, Container, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
+import artistImage from './WhatsApp Image 2024-10-03 at 03.03.34.jpeg'; // Updated image path
 
 const About = () => {
   return (
@@ -33,14 +34,17 @@ const About = () => {
             </Grid>
             
             {/* Right column for the artist portrait */}
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Box
                 component="img"
-                src="https://via.placeholder.com/500x600/424242/e0e0e0?text=Artist+Portrait"
+                src={artistImage}
                 alt="Artist Portrait"
                 sx={{
-                  width: '100%',
-                  height: 'auto',
+                  width: '1200px', // Full width of container
+                  maxWidth: '1200px', // Maximum width constraint
+                  height: '450px', // Auto height to maintain aspect ratio
+                  maxHeight: '450px', // Lower max height for landscape orientation
+                  objectFit: 'cover', // Cover to ensure the image fills the container
                   borderRadius: 2,
                   boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
                   filter: 'grayscale(0.7)',
