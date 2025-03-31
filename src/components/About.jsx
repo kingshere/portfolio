@@ -42,8 +42,8 @@ const About = () => {
           <Grid 
             container 
             spacing={isMobile ? 4 : 6} 
-            alignItems="center"
-            direction={isMobile ? "column-reverse" : "row"}
+            alignItems="flex-start"
+            direction={isMobile ? "column" : "row"}
           >
             {/* Left column for the about text */}
             <Grid item xs={12} sm={6}>
@@ -103,28 +103,41 @@ const About = () => {
             </Grid>
             
             {/* Right column for the artist portrait */}
-            <Grid item xs={12} sm={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Grid item xs={12} sm={6} sx={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center',
+              mt: isMobile ? 2 : 0,
+              pt: isMobile ? 2 : 0
+            }}>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                style={{ width: '100%', display: 'flex', justifyContent: 'center' }}
+                style={{ 
+                  width: '100%', 
+                  display: 'flex', 
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  padding: '10px 0'
+                }}
               >
                 <Box
                   component="img"
                   src={artistImage}
                   alt="Artist Portrait"
                   sx={{
-                    width: '100%',
-                    maxWidth: isMobile ? '90%' : '100%',
-                    height: 'auto',
-                    maxHeight: isMobile ? '350px' : '450px',
+                    width: isMobile ? '100%' : '90%',
+                    height: isMobile ? '300px' : '400px',
                     objectFit: 'cover',
-                    borderRadius: 2,
+                    objectPosition: 'center',
+                    borderRadius: 3,
                     boxShadow: '0 15px 35px rgba(0,0,0,0.4)',
                     filter: 'grayscale(0.5) contrast(1.1)',
                     transition: 'all 0.5s ease',
+                    mx: 'auto',
+                    display: 'block',
                     '&:hover': {
                       filter: 'grayscale(0.2) contrast(1.05)',
                       transform: 'scale(1.02)',
