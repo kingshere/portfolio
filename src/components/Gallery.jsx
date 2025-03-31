@@ -1,9 +1,12 @@
 import React from 'react';
-import { Typography, Container, Box, Paper } from '@mui/material';
+import { Typography, Container, Box, Paper, useTheme, useMediaQuery } from '@mui/material';
 import Carousel from 'react-material-ui-carousel';
 import { motion } from 'framer-motion';
 
 const Gallery = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
   // Sample artwork data with grey-themed placeholder images
   const artworks = [
     {
@@ -50,59 +53,91 @@ const Gallery = () => {
 
   return (
     <section id="gallery" className="ink-splatter">
-      <Container>
+      <Container maxWidth="lg">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <Typography variant="h2" className="section-title" gutterBottom>
+          <Typography 
+            variant="h2" 
+            className="section-title" 
+            gutterBottom
+            sx={{
+              textAlign: 'center',
+              mb: 4,
+              position: 'relative',
+              '&:after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -10,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '80px',
+                height: '3px',
+                background: 'linear-gradient(90deg, rgba(189,189,189,0) 0%, rgba(189,189,189,1) 50%, rgba(189,189,189,0) 100%)'
+              }
+            }}
+          >
             Gallery
           </Typography>
           
-          <Box sx={{ maxWidth: '900px', margin: '0 auto' }}>
+          <Box sx={{ maxWidth: '1000px', margin: '0 auto', px: isMobile ? 1 : 3 }}>
             <Carousel
-              animation="slide"
+              animation="fade"
               navButtonsAlwaysVisible
-              autoPlay={false}
+              autoPlay={true}
+              autoPlaySpeed={6000}
               cycleNavigation={true}
+              swipe={true}
               navButtonsProps={{
                 style: {
-                  backgroundColor: 'rgba(33, 33, 33, 0.7)',
-                  borderRadius: 0,
+                  backgroundColor: 'rgba(33, 33, 33, 0.8)',
+                  borderRadius: '50%',
+                  padding: '10px',
+                  color: '#fff',
+                  transform: 'scale(1.2)',
                 }
               }}
               indicatorContainerProps={{
                 style: {
-                  marginTop: '20px',
+                  marginTop: '25px',
+                  marginBottom: '10px',
                 }
               }}
               indicatorIconButtonProps={{
                 style: {
-                  color: '#9e9e9e',
+                  color: 'rgba(158, 158, 158, 0.6)',
+                  padding: '5px',
+                  margin: '0 4px',
                 }
               }}
               activeIndicatorIconButtonProps={{
                 style: {
                   color: '#e0e0e0',
+                  transform: 'scale(1.2)',
                 }
               }}
             >
               {artworks.map((artwork) => (
                 <Paper 
                   key={artwork.id}
-                  elevation={6}
+                  elevation={8}
                   sx={{ 
-                    background: 'rgba(66, 66, 66, 0.8)',
+                    background: 'rgba(33, 33, 33, 0.9)',
                     borderRadius: 2,
                     overflow: 'hidden',
-                    position: 'relative'
+                    position: 'relative',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                    }
                   }}
                 >
                   <Box
                     sx={{
-                      height: '70vh',
+                      height: isMobile ? '50vh' : '70vh',
                       display: 'flex',
                       flexDirection: 'column',
                       position: 'relative'
@@ -116,7 +151,11 @@ const Gallery = () => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'contain',
-                        filter: 'grayscale(0.4)',
+                        filter: 'grayscale(0.3) contrast(1.1)',
+                        transition: 'all 0.5s ease',
+                        '&:hover': {
+                          filter: 'grayscale(0) contrast(1.05)',
+                        }
                       }}
                       className="grey-overlay"
                     />
@@ -125,14 +164,15 @@ const Gallery = () => {
                         position: 'absolute',
                         bottom: 0,
                         width: '100%',
-                        background: 'rgba(33, 33, 33, 0.8)',
-                        padding: 3,
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 70%, rgba(0,0,0,0) 100%)',
+                        padding: isMobile ? 2 : 3,
+                        transition: 'all 0.3s ease',
                       }}
                     >
-                      <Typography variant="h5" component="h3">
+                      <Typography variant="h5" component="h3" sx={{ fontWeight: 500 }}>
                         {artwork.title}
                       </Typography>
-                      <Typography variant="subtitle1" sx={{ color: '#bdbdbd' }}>
+                      <Typography variant="subtitle1" sx={{ color: '#d5d5d5', mt: 1 }}>
                         {artwork.year} | {artwork.medium} | {artwork.dimensions}
                       </Typography>
                     </Box>
